@@ -28,6 +28,7 @@ export class SideComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem('policies')) {
       this.policies = localStorage.getItem('policies').split(',');
+      this.policyForm.patchValue(this.policies);
     }
 
     this.checkTimeStatus();
