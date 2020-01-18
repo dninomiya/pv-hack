@@ -2,16 +2,28 @@
   display: grid;
   gap: 24px;
   grid-template-columns: 1fr 320px;
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .main {
   display: grid;
   gap: 16px;
   grid-template-columns: 1fr 1fr;
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .types {
   margin-bottom: 16px;
+}
+
+.preview {
+  &__input {
+    margin-bottom: 16px;
+  }
 }
 
 mat-form-field {

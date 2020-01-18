@@ -3,11 +3,29 @@
   <span class="spacer"></span>
   <button mat-button disabled>YouTube</button>
   <button mat-button>Twitter</button>
+  <a href="https://github.com/deerboy/pv-hack" target="_blank" mat-icon-button>
+    <mat-icon class="mat-18" class="github"></mat-icon>
+  </a>
 </mat-toolbar>
 
 <div class="container">
   <router-outlet></router-outlet>
   <footer class="footer">
-    &copy; <a href="https://twitter/d151005" target="_bank">Nino</a>
+    <p>
+      機能の要望はDMか<a href="https://github.com/deerboy/pv-hack/issues"
+        >Issue</a
+      >でお待ちしています！
+    </p>
+    <p>
+      <a
+        href="https://twitter.com/d151005?ref_src=twsrc%5Etfw"
+        class="twitter-follow-button"
+        data-size="large"
+        data-lang="ja"
+        data-show-count="false"
+        >Follow @d151005</a
+      >
+    </p>
+    <p>&copy; <a href="https://twitter/d151005" target="_bank">Nino</a></p>
   </footer>
 </div>

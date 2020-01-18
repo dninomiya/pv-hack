@@ -2,7 +2,14 @@
   <div class="main">
     <div class="editor">
       <div class="types">
-        <h2>ツイートタイプ</h2>
+        <h2>
+          ツイートタイプ
+          <a
+            href="https://www.youtube.com/watch?v=cP3VarqEz7k&t=783s"
+            target="_blank"
+            ><mat-icon class="mat-18" inline>info</mat-icon></a
+          >
+        </h2>
         <mat-button-toggle-group [formControl]="type" aria-label="Font Style">
           <mat-button-toggle value="bullet">箇条書き</mat-button-toggle>
           <mat-button-toggle value="assertion">有益主張</mat-button-toggle>
@@ -88,7 +95,7 @@
       </ng-container>
     </div>
     <div class="preview">
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="preview__input">
         <mat-label>プレビュー</mat-label>
         <textarea
           matInput
