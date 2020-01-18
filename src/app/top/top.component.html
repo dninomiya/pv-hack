@@ -1,0 +1,106 @@
+<div class="wrap">
+  <div class="main">
+    <div class="editor">
+      <div class="types">
+        <h2>ツイートタイプ</h2>
+        <mat-button-toggle-group [formControl]="type" aria-label="Font Style">
+          <mat-button-toggle value="bullet">箇条書き</mat-button-toggle>
+          <mat-button-toggle value="assertion">有益主張</mat-button-toggle>
+          <mat-button-toggle value="quote">引用</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+
+      <ng-container [ngSwitch]="type.value">
+        <div *ngSwitchCase="'bullet'" [formGroup]="bulletForm">
+          <mat-form-field appearance="outline">
+            <mat-label>タイトル</mat-label>
+            <textarea
+              appAutoFocus
+              matTextareaAutosize
+              formControlName="title"
+              matInput
+            ></textarea>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>箇条書き</mat-label>
+            <textarea
+              matTextareaAutosize
+              formControlName="lines"
+              matInput
+            ></textarea>
+            <mat-hint>改行区切り</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>まとめ</mat-label>
+            <textarea
+              matTextareaAutosize
+              formControlName="comment"
+              matInput
+            ></textarea>
+          </mat-form-field>
+        </div>
+
+        <div *ngSwitchCase="'assertion'" [formGroup]="assertionForm">
+          <mat-form-field appearance="outline">
+            <mat-label>主張</mat-label>
+            <textarea
+              matTextareaAutosize
+              appAutoFocus
+              matInput
+              formControlName="assertion"
+              #tweet
+            ></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>具体例</mat-label>
+            <textarea
+              matTextareaAutosize
+              matInput
+              formControlName="example"
+              #tweet
+            ></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>まとめ</mat-label>
+            <textarea
+              matTextareaAutosize
+              matInput
+              formControlName="comment"
+              #tweet
+            ></textarea>
+          </mat-form-field>
+        </div>
+
+        <div *ngSwitchCase="'quote'">
+          <mat-form-field appearance="outline">
+            <mat-label>ツイート</mat-label>
+            <textarea
+              appAutoFocus
+              matTextareaAutosize
+              placeholder="有名人の代弁（宣伝代行）とさりげない自己PR"
+              matInput
+              [formControl]="quoteForm"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </ng-container>
+    </div>
+    <div class="preview">
+      <mat-form-field appearance="outline">
+        <mat-label>プレビュー</mat-label>
+        <textarea
+          matInput
+          matTextareaAutosize
+          readonly
+          [value]="preview"
+        ></textarea>
+        <mat-hint>{{ preview.length }} / 140</mat-hint>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="copy()">コピー</button>
+    </div>
+  </div>
+
+  <app-side></app-side>
+</div>

@@ -1,0 +1,42 @@
+.card {
+  position: relative;
+  &__edit {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+  &__title {
+    margin: 0 0 16px;
+  }
+  margin-bottom: 16px;
+}
+
+.policy {
+  margin: 0;
+}
+
+.source {
+  color: skyblue;
+  font-size: 12px;
+  text-align: right;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button + button {
+  margin-left: 16px;
+}
+
+.status {
+  padding: 8px;
+  font-size: 13px;
+  color: rgba(black, 0.6);
+  &--good {
+    background: rgba(green, 0.1);
+  }
+  &--bad {
+    background: rgba(red, 0.1);
+  }
+}

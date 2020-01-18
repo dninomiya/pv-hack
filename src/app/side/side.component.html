@@ -1,0 +1,58 @@
+<mat-card class="card">
+  <button class="card__edit" mat-icon-button>
+    <mat-icon *ngIf="!isEditable" class="mat-18" (click)="isEditable = true"
+      >edit</mat-icon
+    >
+  </button>
+  <mat-card-header>
+    <mat-card-title>軸</mat-card-title>
+    <mat-card-subtitle>軸をブらさない</mat-card-subtitle>
+  </mat-card-header>
+  <div *ngIf="isEditable" [formGroup]="policyForm">
+    <mat-form-field
+      *ngFor="let control of policyForm.controls; index as i; first as isFirst"
+      appearance="outline"
+    >
+      <mat-label>軸{{ i + 1 }}</mat-label>
+      <textarea
+        [appAutoFocus]="isFirst"
+        matInput
+        matTextareaAutosize
+        [formControlName]="i"
+      ></textarea>
+    </mat-form-field>
+
+    <button mat-button color="primary" (click)="isEditable = false">
+      キャンセル
+    </button>
+
+    <button mat-flat-button color="primary" (click)="savePolicy()">
+      保存
+    </button>
+  </div>
+  <ol class="policy" *ngIf="!isEditable">
+    <li *ngFor="let policy of policies">
+      {{ policy }}
+    </li>
+  </ol>
+</mat-card>
+<mat-card class="card">
+  <h3>ツイートタイム</h3>
+  <p class="status status--good" *ngIf="timeStatus">
+    今は見られやすい時間帯です ✅
+  </p>
+  <p class="status status--bad" *ngIf="!timeStatus">
+    今は見られにくい時間帯です 💤
+  </p>
+  <dl>
+    <dt>平日:</dt>
+    <dd>5時・11時・15時・20時</dd>
+    <dt>休日:</dt>
+    <dd>8時・12時・14時・16時</dd>
+  </dl>
+  <p class="source">
+    <a href="https://ferret-plus.com/6835" target="_blank"
+      >ソース <mat-icon class="mat-18" inline>open_in_new</mat-icon></a
+    >
+  </p>
+</mat-card>
